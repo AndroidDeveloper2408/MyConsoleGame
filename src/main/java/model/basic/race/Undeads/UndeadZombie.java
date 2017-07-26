@@ -4,14 +4,17 @@ import model.basic.characterModel.Character;
 
 public class UndeadZombie extends Character {
 
-    public UndeadZombie(String race) {
-        super(race);
-    }
+
+    private double spearAttackDamage = 18.0;
 
     //Deal damage method
-    public void cudgelAttack(Character defender){
-        defender.setHEALPOINTS(defender.getHEALPOINTS() - 18.0);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + " do spear attack by " + 18.0 + " damage to " +
-                defender.getRace() + " " + defender.getClass().getSimpleName().toString());
+    public void spearAttack(Character defender){
+        checkCurse();
+        checkedDamage = checkDamage(spearAttackDamage);
+        defender.setHealpoints(defender.getHealpoints() - checkedDamage);
+        System.out.println(this.getClass().getPackage().toString() + " " + this.getClass().getSimpleName() +
+                " do spear attack by " + checkedDamage + " damage to " +
+                defender.getClass().getPackage().toString() + " " + defender.getClass().getSimpleName());
+        checkGroupStatus();
     }
 }

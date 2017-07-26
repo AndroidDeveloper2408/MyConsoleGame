@@ -9,18 +9,8 @@ import java.util.List;
 
 public class Elves {
 
-    List<ElfMage> elfMages;
-    List<ElfHunter> elfHunters;
-    List<ElfWar> elfWars;
+    private List<ElfMage> elfMages = Arrays.asList(new ElfMage());
+    private List<ElfHunter>  elfHunters = Arrays.asList(new ElfHunter(), new ElfHunter(), new ElfHunter());
+    private List<ElfWar> elfWars = Arrays.asList(new ElfWar(), new ElfWar(), new ElfWar(), new ElfWar());
 
-    public Elves() {
-        elfMages = Arrays.asList(new ElfMage());
-        elfHunters = Arrays.asList(new ElfHunter(), new ElfHunter(), new ElfHunter());
-        elfWars = Arrays.asList(new ElfWar(), new ElfWar(), new ElfWar(), new ElfWar());
-    }
-
-    @Override
-    public String toString() {
-        return "Elves";
-    }
 }

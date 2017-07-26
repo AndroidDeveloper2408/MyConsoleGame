@@ -1,21 +1,16 @@
 package model.basic.race.Orcs.MainOrcsClass;
 
-import model.basic.characterModel.Character;
-import model.basic.race.Elves.ElfHunter;
+import model.basic.race.Orcs.OrcGoblin;
+import model.basic.race.Orcs.OrcHunter;
+import model.basic.race.Orcs.OrcShaman;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Orcs extends BasicRace {
+public class Orcs {
 
-    public Orcs(List<? extends Character> mages, List<? extends Character> hunters, List<? extends Character> wars) {
-        super(Arrays.asList(new Shaman()),
-                Arrays.asList(new ElfHunter(), new ElfHunter(), new ElfHunter()),
-                Arrays.asList(new Goblin(), new Goblin(), new Goblin(),  new Goblin()));
-    }
+    private List<OrcShaman>  orcShamans = Arrays.asList(new OrcShaman());
+    private List<OrcHunter>  orcHunters = Arrays.asList(new OrcHunter(), new OrcHunter(), new OrcHunter());
+    private List<OrcGoblin> orcGoblins = Arrays.asList(new OrcGoblin(), new OrcGoblin(), new OrcGoblin(), new OrcGoblin());
 
-    @Override
-    public String toString() {
-        return "Orcs";
-    }
 }

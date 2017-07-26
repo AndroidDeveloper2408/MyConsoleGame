@@ -2,23 +2,30 @@ package model.basic.race.Undeads;
 
 import model.basic.characterModel.Character;
 
-public class UndeadHunter extends Character{
+public class UndeadHunter extends Character {
 
-    public UndeadHunter(String race) {
-        super(race);
-    }
+    private double shootFromTheBowDamage = 4.0;
+    private double attackDamage = 2.0;
 
     //Deal damage method
     public void shootFromTheBow(Character defender){
-        defender.setHEALPOINTS(defender.getHEALPOINTS() - 4.0);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + "shoot from the bow and deal " + 4.0 + " damage to " +
-                defender.getRace() + " " + defender.getClass().getSimpleName().toString());
+        checkCurse();
+        checkedDamage = checkDamage(shootFromTheBowDamage);
+        defender.setHealpoints(defender.getHealpoints() - checkedDamage);
+        System.out.println(this.getClass().getPackage().toString() +
+                " " + this.getClass().getSimpleName() + "  shoot from the bow and deal " + checkedDamage + " damage to " +
+                defender.getClass().getPackage().toString() + " " + defender.getClass().getSimpleName());
+        checkGroupStatus();
     }
 
     //Deal damage method
     public void attack(Character defender){
-        defender.setHEALPOINTS(defender.getHEALPOINTS() - 2.0);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + " deal " + 2.0 + " damage to " +
-                defender.getRace() + " " + defender.getClass().getSimpleName().toString());
+        checkCurse();
+        checkedDamage = checkDamage(attackDamage);
+        defender.setHealpoints(defender.getHealpoints() - checkedDamage);
+        System.out.println(this.getClass().getPackage().toString() + " " + this.getClass().getSimpleName() +
+                " deal " + checkedDamage + " damage to " + defender.getClass().getPackage().toString() +
+                "  " + defender.getClass().getSimpleName());
+        checkGroupStatus();
     }
 }

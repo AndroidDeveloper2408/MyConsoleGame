@@ -4,21 +4,28 @@ import model.basic.characterModel.Character;
 
 public class HumanArbalester extends Character{
 
-    public HumanArbalester(String race) {
-        super(race);
-    }
+    private double shootFromTheCrossBowDamage = 5.0;
+    private double attackDamage = 3.0;
 
     //Deal damage method
     public void shootFromTheCrossBow(Character defender){
-        defender.setHEALPOINTS(defender.getHEALPOINTS() - 5.0);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + "shoot from the crossbow and deal " + 5.0 + " damage to " +
-                defender.getRace() + " " + defender.getClass().getSimpleName().toString());
+        checkCurse();
+        checkedDamage = checkDamage(shootFromTheCrossBowDamage);
+        defender.setHealpoints(defender.getHealpoints() - checkedDamage);
+        System.out.println(this.getClass().getPackage().toString() + " " + this.getClass().getSimpleName() +
+                "shoot from the crossbow and deal " + checkedDamage + " damage to " +
+                defender.getClass().getPackage().toString()+ " " + defender.getClass().getSimpleName());
+        checkGroupStatus();
     }
 
     //Deal damage method
     public void attack(Character defender){
-        defender.setHEALPOINTS(defender.getHEALPOINTS() - 3.0);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + " deal " + 3.0 + " damage to " +
-                defender.getRace() + " " + defender.getClass().getSimpleName().toString());
+        checkCurse();
+        checkedDamage = checkDamage(attackDamage);
+        defender.setHealpoints(defender.getHealpoints() - checkedDamage);
+        System.out.println(this.getClass().getPackage().toString() + " " + this.getClass().getSimpleName() +
+                " deal " + checkedDamage + " damage to " +
+                defender.getClass().getPackage().toString() + " " + defender.getClass().getSimpleName());
+        checkGroupStatus();
     }
 }

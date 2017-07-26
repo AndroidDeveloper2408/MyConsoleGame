@@ -4,22 +4,24 @@ import model.basic.characterModel.Character;
 
 public class HumanMage extends Character {
 
-    public HumanMage(String race) {
-        super(race);
-    }
+    private double magicDamage = 4.0;
 
     //Deal damage method
     public void dealMagicDamage(Character defender){
-        defender.setHEALPOINTS(defender.getHEALPOINTS() - 4.0);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + " deal " + 4.0 + " magic damage to " +
-                defender.getRace() + " " + defender.getClass().getSimpleName().toString());
+        checkCurse();
+        checkedDamage = checkDamage(magicDamage);
+        defender.setHealpoints(defender.getHealpoints() - checkedDamage);
+        System.out.println(this.getClass().getPackage().toString() + " " + this.getClass().getSimpleName() +
+                "  deal " + checkedDamage + " magic damage to " +
+                defender.getClass().getPackage().toString() + " " + defender.getClass().getSimpleName());
+        checkGroupStatus();
     }
 
     //Improve characteristic method
     public void improve(Character ally){
-        ally.setStatus(true);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + " improve him friends "
-                + ally.getClass().getSimpleName().toString());
+        ally.setGroupStatus(true);
+        System.out.println(this.getClass().getPackage().toString() + " " + this.getClass().getSimpleName() +
+                " improve him friends " + ally.getClass().getSimpleName());
     }
 
 

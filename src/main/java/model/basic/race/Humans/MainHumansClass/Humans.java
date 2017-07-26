@@ -1,22 +1,16 @@
 package model.basic.race.Humans.MainHumansClass;
 
-import model.basic.characterModel.Character;
-import model.basic.race.Elves.ElfMage;
-import model.basic.race.Elves.ElfWar;
+import model.basic.race.Humans.HumanArbalester;
+import model.basic.race.Humans.HumanMage;
+import model.basic.race.Humans.HumanWar;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Humans extends BasicRace {
+public class Humans {
 
-    public Humans(List<? extends Character> mages, List<? extends Character> hunters, List<? extends Character> wars) {
-        super(Arrays.asList(new ElfMage()),
-                Arrays.asList(new Arbalester(), new Arbalester(), new Arbalester()),
-                Arrays.asList(new ElfWar(), new ElfWar(), new ElfWar(), new ElfWar()));
-    }
+    private List<HumanMage> humanMages = Arrays.asList(new HumanMage());
+    private List<HumanArbalester>  humanArbalesters = Arrays.asList(new HumanArbalester(), new HumanArbalester(), new HumanArbalester());
+    private List<HumanWar> humanWars = Arrays.asList(new HumanWar(), new HumanWar(), new HumanWar(), new HumanWar());
 
-    @Override
-    public String toString() {
-        return "Humans";
-    }
 }

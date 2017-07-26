@@ -4,22 +4,24 @@ import model.basic.characterModel.Character;
 
 public class UndeadNecromancer extends Character{
 
-    public UndeadNecromancer(String race) {
-        super(race);
-    }
+    private double attackDamage = 5.0;
 
     //Send disease method
     public void sendDisease(Character defender){
-        defender.setDisease(true);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + " send disease by enemy "
-                + defender.getClass().getSimpleName().toString() + " and him attack is now 50% less than the next move");
+        defender.setDiseaseStatus(true);
+        System.out.println(this.getClass().getPackage().toString() + " " + this.getClass().getSimpleName() + " send disease by enemy "
+                + defender.getClass().getSimpleName() + " and him attack is now 50% less than the next move");
     }
 
     //Deal damage method
     public void attack(Character defender){
-        defender.setHEALPOINTS(defender.getHEALPOINTS() - 5.0);
-        System.out.println(race + " " + this.getClass().getSimpleName().toString() + " attack by " + 5.0 + " damage to " +
-                defender.getRace() + " " + defender.getClass().getSimpleName().toString());
+        checkCurse();
+        checkedDamage = checkDamage(attackDamage);
+        defender.setHealpoints(defender.getHealpoints() - checkedDamage);
+        System.out.println(this.getClass().getPackage().toString() + " " +
+                this.getClass().getSimpleName() + " attack by " + checkedDamage + " damage to " +
+                defender.getClass().getPackage().toString() + " " + defender.getClass().getSimpleName());
+        checkGroupStatus();
     }
 
 }
